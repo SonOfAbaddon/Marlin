@@ -810,7 +810,7 @@
 #define I_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe. //SoA
+#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
 
 /**
  * Stepper Drivers
@@ -1154,10 +1154,10 @@
 #define PROBING_MARGIN 12 //SoA
 
 // X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_SPEED 3000 //SoA
+#define XY_PROBE_FEEDRATE 3000 //SoA
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z //SoA
+#define Z_PROBE_FEEDRATE_FAST (4*60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2)
@@ -1290,7 +1290,7 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR true //SoA
-#define INVERT_Y_DIR true
+#define INVERT_Y_DIR true //SoA
 #define INVERT_Z_DIR false
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
@@ -1518,10 +1518,10 @@
 /**
  * Auto-leveling needs preheating
  */
-#define PREHEAT_BEFORE_LEVELING //SoA
+//#define PREHEAT_BEFORE_LEVELING
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
-  #define LEVELING_NOZZLE_TEMP   0  //SoA (°C) Only applies to E0 at this time
-  #define LEVELING_BED_TEMP     55  //SoA
+  #define LEVELING_NOZZLE_TEMP  120 // (°C) Only applies to E0 at this time
+  #define LEVELING_BED_TEMP     50
 #endif
 
 /**
@@ -2145,7 +2145,7 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-#define SPEAKER //SoA
+//#define SPEAKER
 
 //
 // The duration and frequency for the UI feedback sound.
